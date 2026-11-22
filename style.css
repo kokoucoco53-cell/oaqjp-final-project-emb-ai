@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 2rem;
+  background: #f3f6fb;
+  color: #172033;
+  font-family: Arial, sans-serif;
+}
+.container {
+  max-width: 680px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0.6rem 0 1rem;
+  padding: 0.8rem;
+  font: inherit;
+}
+button {
+  padding: 0.7rem 1.2rem;
+  border: 0;
+  border-radius: 6px;
+  background: #1769aa;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+#result { line-height: 1.6; overflow-wrap: anywhere; }

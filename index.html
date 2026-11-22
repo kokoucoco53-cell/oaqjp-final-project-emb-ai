@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emotion Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <h1>Emotion Detector</h1>
+    <p>Enter a sentence and discover the emotions expressed in it.</p>
+    <label for="statement">Text to analyze</label>
+    <textarea id="statement" rows="5" placeholder="I think I am having fun"></textarea>
+    <button id="analyze">Analyze</button>
+    <p id="result" role="status" aria-live="polite"></p>
+  </main>
+  <script>
+    const button = document.getElementById("analyze");
+    button.addEventListener("click", async () => {
+      const text = document.getElementById("statement").value;
+      const output = document.getElementById("result");
+      if (!text.trim()) {
+        output.textContent = "Invalid text! Please try again!";
+        return;
+      }
+      output.textContent = "Analyzing...";
+      try {
+        const response = await fetch(
+          `/emotionDetector?textToAnalyze=${encodeURIComponent(text)}`
+        );
+        output.textContent = await response.text();
+      } catch (error) {
+        output.textContent = "Unable to contact the application. Please try again.";
+      }
+    });
+  </script>
+</body>
+</html>
